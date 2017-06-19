@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
-    "test": "babel-tape-runner tests/**/*.js"
+    "test": "babel-tape-runner tests/**/*.js",
+    "start": "node dist"
   },
   "repository": "git@github.com:figueredo/bank2ynab",
   "author": "Thiago Cardoso <tfcardoso@gmail.com>",
