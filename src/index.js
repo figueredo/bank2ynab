@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise';
 import parseArgs from './args';
 import { readFile, writeFile } from './io';
 import aleloFactory from './input/alelo';
+import nubankFactory from './input/nubank';
 import { CsvPropertyNames, CsvHeaderNames, mapFactory as ynabFactory } from './output/ynab';
 import './rx/asLines';
 import './rx/toCsv';
@@ -12,8 +13,14 @@ function createInputMapper(type, options) {
   let mapper;
   switch (type) {
     case 'alelo':
-    default:
       mapper = aleloFactory(options.year);
+      break;
+    case 'nubank':
+      mapper = nubankFactory(options.year);
+      break;
+    default:
+      mapper = null; // won't happen
+      break;
   }
   return mapper;
 }

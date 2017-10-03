@@ -5,7 +5,7 @@ export default function parseArgs() {
   .option('type', {
     alias: 't',
     describe: 'choose the input file type',
-    choices: ['alelo'],
+    choices: ['alelo', 'nubank'],
     demandOption: true,
   })
   .option('year', {
