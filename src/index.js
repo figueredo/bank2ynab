@@ -5,6 +5,7 @@ import parseArgs from './args';
 import { readFile, writeFile } from './io';
 import aleloFactory from './input/alelo';
 import nubankFactory from './input/nubank';
+import itaucardFactory from './input/itaucard';
 import { CsvPropertyNames, CsvHeaderNames, mapFactory as ynabFactory } from './output/ynab';
 import './rx/asLines';
 import './rx/toCsv';
@@ -17,6 +18,9 @@ function createInputMapper(type, options) {
       break;
     case 'nubank':
       mapper = nubankFactory(options.year);
+      break;
+    case 'itaucard':
+      mapper = itaucardFactory(options.year);
       break;
     default:
       mapper = null; // won't happen
